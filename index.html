@@ -3,74 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis 15 Años - Sofía</title>
+    <title>Mis 15 Años - Brisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
+            padding: 0;
+            background: #ffffff; /* Fondo Blanco */
+            color: #003366; /* Azul Oscuro */
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
-            background-color: #fdf6f6; /* Color pastel de fondo */
-            color: #5a5a5a;
+            overflow-x: hidden;
         }
-        .header {
-            background-image: url('tu-foto-de-fondo.jpg'); /* Cambiar por link de imagen */
-            background-size: cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+
+        /* Fondo con estrellas y manchas tenues */
+        .background-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 51, 102, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.1) 0%, transparent 40%);
+            z-index: -1;
         }
-        .content { padding: 20px; }
+
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .container {
+            padding: 50px 20px;
+            max-width: 600px;
+            margin: auto;
+            border: 2px solid #d4af37; /* Borde Dorado */
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            color: #004080; /* Azul */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2), 0 0 10px rgba(212, 175, 55, 0.5); /* Brillo */
+            margin-bottom: 10px;
+        }
+
+        .details { font-size: 1.2em; margin: 20px 0; }
+        .golden { color: #b8860b; font-weight: bold; }
+
         .btn {
             display: inline-block;
             padding: 15px 30px;
-            margin: 10px;
-            background-color: #d4a373;
+            background: #004080;
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            font-weight: bold;
+            margin-top: 20px;
+            border: 2px solid #d4af37;
+            transition: 0.3s;
         }
-        .countdown {
-            font-size: 1.5rem;
-            margin: 20px 0;
-            color: #b07d62;
-        }
+
+        .btn:hover { background: #d4af37; color: #004080; }
+
+        /* Reproductor oculto */
+        #music-player { display: none; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>MIS 15 AÑOS</h1>
-        <h2>Sofía</h2>
-    </div>
+    <div class="background-overlay"></div>
+    <div class="stars"></div>
 
-    <div class="content">
-        <p class="countdown" id="timer">¡Cargando cuenta regresiva!</p>
+    <div class="container">
+        <p>Mis 15 Años</p>
+        <h1>Brisa</h1> <div class="details">
+            <p>Te espero para compartir una noche mágica</p>
+            <p class="golden">08 de Mayo de 2026</p>
+            <p>21:00 Horas</p>
+            <p>La Plata, Buenos Aires</p>
+        </div>
+
+        <a href="https://wa.me/tu_numero" class="btn">Confirmar Asistencia</a>
         
-        <h3>¿Cuándo?</h3>
-        <p>Sábado 15 de Octubre - 21:00 hs</p>
-
-        <h3>¿Dónde?</h3>
-        <p>Salón de Eventos "La Mansión"</p>
-        <a href="https://maps.google.com" class="btn">Ver Mapa</a>
-
-        <h3>Confirmar Asistencia</h3>
-        <p>Por favor, confirma antes del 1 de Octubre.</p>
-        <a href="https://wa.me/tu-numero-aqui" class="btn">Confirmar por WhatsApp</a>
+        <iframe id="music-player" width="0" height="0" src="https://www.youtube.com/embed/QsSffdlYMro?autoplay=1" frameborder="0" allow="autoplay"></iframe>
     </div>
 
     <script>
-        // Lógica simple para cuenta regresiva
-        const targetDate = new Date("Oct 15, 2026 21:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("timer").innerHTML = `Faltan ${days} días`;
-        }, 1000);
+        // Intento de reproducción automática (algunos navegadores requieren interacción)
+        window.addEventListener('click', () => {
+            const player = document.getElementById('music-player');
+            player.src += "&autoplay=1";
+        }, { once: true });
     </script>
 </body>
 </html>
