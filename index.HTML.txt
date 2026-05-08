@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años - Sofía</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            text-align: center;
+            background-color: #fdf6f6; /* Color pastel de fondo */
+            color: #5a5a5a;
+        }
+        .header {
+            background-image: url('tu-foto-de-fondo.jpg'); /* Cambiar por link de imagen */
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .content { padding: 20px; }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #d4a373;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        .countdown {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #b07d62;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>MIS 15 AÑOS</h1>
+        <h2>Sofía</h2>
+    </div>
+
+    <div class="content">
+        <p class="countdown" id="timer">¡Cargando cuenta regresiva!</p>
+        
+        <h3>¿Cuándo?</h3>
+        <p>Sábado 15 de Octubre - 21:00 hs</p>
+
+        <h3>¿Dónde?</h3>
+        <p>Salón de Eventos "La Mansión"</p>
+        <a href="https://maps.google.com" class="btn">Ver Mapa</a>
+
+        <h3>Confirmar Asistencia</h3>
+        <p>Por favor, confirma antes del 1 de Octubre.</p>
+        <a href="https://wa.me/tu-numero-aqui" class="btn">Confirmar por WhatsApp</a>
+    </div>
+
+    <script>
+        // Lógica simple para cuenta regresiva
+        const targetDate = new Date("Oct 15, 2026 21:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("timer").innerHTML = `Faltan ${days} días`;
+        }, 1000);
+    </script>
+</body>
+</html>
