@@ -9,8 +9,8 @@
         body {
             margin: 0;
             padding: 0;
-            background: #ffffff; /* Fondo Blanco */
-            color: #003366; /* Azul Oscuro */
+            background: #ffffff;
+            color: #003366;
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             overflow-x: hidden;
@@ -35,41 +35,65 @@
         }
 
         .container {
-            padding: 50px 20px;
-            max-width: 600px;
+            padding: 60px 20px;
+            max-width: 500px;
             margin: auto;
-            border: 2px solid #d4af37; /* Borde Dorado */
+            border: 2px solid #d4af37;
             margin-top: 50px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        p.pre-title {
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            color: #d4af37;
+            margin-bottom: 0;
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 4em;
-            color: #004080; /* Azul */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2), 0 0 10px rgba(212, 175, 55, 0.5); /* Brillo */
-            margin-bottom: 10px;
+            font-size: 4.5em;
+            color: #004080;
+            text-shadow: 2px 2px 0px rgba(212, 175, 55, 0.2), 0 0 15px rgba(0, 64, 128, 0.3);
+            margin-top: 0;
+            margin-bottom: 20px;
         }
 
-        .details { font-size: 1.2em; margin: 20px 0; }
-        .golden { color: #b8860b; font-weight: bold; }
+        .details { font-size: 1.1em; line-height: 1.8; margin: 30px 0; }
+        .date { 
+            font-size: 1.4em; 
+            color: #b8860b; 
+            font-weight: 400;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+        }
 
         .btn {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 15px 35px;
             background: #004080;
             color: white;
             text-decoration: none;
-            border-radius: 25px;
-            margin-top: 20px;
-            border: 2px solid #d4af37;
-            transition: 0.3s;
+            border-radius: 30px;
+            margin-top: 25px;
+            border: 1px solid #d4af37;
+            transition: all 0.4s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 64, 128, 0.2);
         }
 
-        .btn:hover { background: #d4af37; color: #004080; }
+        .btn:hover {
+            background: #d4af37;
+            color: #004080;
+            transform: translateY(-3px);
+        }
 
-        /* Reproductor oculto */
         #music-player { display: none; }
     </style>
 </head>
@@ -79,21 +103,24 @@
     <div class="stars"></div>
 
     <div class="container">
-        <p>Mis 15 Años</p>
-        <h1>Brisa</h1> <div class="details">
-            <p>Te espero para compartir una noche mágica</p>
-            <p class="golden">08 de Mayo de 2026</p>
-            <p>21:00 Horas</p>
-            <p>La Plata, Buenos Aires</p>
+        <p class="pre-title">Mis 15 Años</p>
+        <h1>Brisa</h1>
+        
+        <div class="details">
+            <p>Hay momentos en la vida que son especiales,<br>pero compartirlos con vos los hace inolvidables.</p>
+            <div class="date">14 de Noviembre de 2026</div>
+            <p><strong>A las 21:00 hs</strong><br>La Plata, Buenos Aires</p>
         </div>
 
-        <a href="https://wa.me/tu_numero" class="btn">Confirmar Asistencia</a>
+        <a href="https://wa.me/542213516687?text=Hola%20Brisa!%20Confirmo%20mi%20asistencia%20a%20tu%20fiesta." class="btn">
+            CONFIRMAR ASISTENCIA
+        </a>
         
         <iframe id="music-player" width="0" height="0" src="https://www.youtube.com/embed/QsSffdlYMro?autoplay=1" frameborder="0" allow="autoplay"></iframe>
     </div>
 
     <script>
-        // Intento de reproducción automática (algunos navegadores requieren interacción)
+        // La música comienza al primer toque del usuario en la pantalla
         window.addEventListener('click', () => {
             const player = document.getElementById('music-player');
             player.src += "&autoplay=1";
